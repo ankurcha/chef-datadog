@@ -1,4 +1,4 @@
-include_recipe "datadog::dd-agent"
+include_recipe 'datadog::dd-agent'
 
 # Monitor tokumx
 #
@@ -9,10 +9,10 @@ include_recipe "datadog::dd-agent"
 #   }
 # ]
 
-package "python-setuptools"
+package 'python-setuptools'
 
-easy_install_package "pymongo"
+easy_install_package 'pymongo'
 
-datadog_monitor "tokumx" do
-  instances node["datadog"]["tokumx"]["instances"]
+datadog_monitor 'tokumx' do
+  instances node['datadog']['tokumx']['instances']
 end

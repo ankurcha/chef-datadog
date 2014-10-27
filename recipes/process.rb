@@ -1,4 +1,4 @@
-include_recipe "datadog::dd-agent"
+include_recipe 'datadog::dd-agent'
 
 # Monitor processes
 #
@@ -7,23 +7,23 @@ include_recipe "datadog::dd-agent"
 #                               one of these matches a process's name, that process will be
 #                               included in the stats.
 #    exact_match:   (optional)  True/False, defaults to True, if you want to look for a partial
-#                               match, use exact_match: "False", otherwise use the exact base
+#                               match, use exact_match: 'False', otherwise use the exact base
 #                               name of the process.
 #
 # Example:
 #
 # node.datadog.process.instances = [
 #   {
-#     :name => "ssh",
-#     :search_string => ["ssh","sshd"],
-#     :exact_match => "False",
+#     :name => 'ssh',
+#     :search_string => ['ssh','sshd'],
+#     :exact_match => 'False',
 #   },
 #   {
-#     :name => "postgres",
-#     :search_string => ["postgres"],
+#     :name => 'postgres',
+#     :search_string => ['postgres'],
 #   },
 # ]
 
-datadog_monitor "process" do
+datadog_monitor 'process' do
   instances node['datadog']['process']['instances']
 end
