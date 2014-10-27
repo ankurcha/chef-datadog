@@ -1,4 +1,4 @@
-include_recipe "datadog::dd-agent"
+include_recipe 'datadog::dd-agent'
 
 # Monitor mongo
 #
@@ -9,10 +9,6 @@ include_recipe "datadog::dd-agent"
 #   }
 # ]
 
-package "python-setuptools"
-
-easy_install_package "pymongo"
-
-datadog_monitor "mongo" do
-  instances node["datadog"]["mongo"]["instances"]
+datadog_monitor 'mongo' do
+  instances node['datadog']['mongo']['instances']
 end
